@@ -36,7 +36,8 @@ elif settings.SESSION_TYPE == 'database':
     from py4web.utils.dbstore import DBStore
     session =  Session(secret=settings.SESSION_SECRET_KEY, storage=DBStore(db))
 
-auth = Auth(session, db, # registration_requires_confirmation=True,
+auth = Auth(session, db,
+            registration_requires_confirmation=False,
             use_username=False)
 
 if auth.db:

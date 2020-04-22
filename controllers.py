@@ -37,5 +37,8 @@ from . common import db, session, T, cache, auth, signed_url
 
 url_signer = URLSigner(session)
 
-
-
+# The auth.user below forces login.
+@action('index')
+@action.uses('index.html', auth.user)
+def index():
+    return dict()
